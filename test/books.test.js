@@ -18,23 +18,23 @@ describe('CRUD Books', () => {
 
     test('should create a book', async () => {
         const bookData = {
-            title: 'Test title',
-            author: 'Test Author',
+          bookTitle: 'Test title',
+            authorName: 'Test Author',
             description: 'This is a test description',
         }
 
         const response = await request(app).post('/books').send(bookData) // Prueba de creación de un libro
 
         expect(response.statusCode).toBe(201) // Verifica que el código de estado sea 201 (creado)
-        expect(response.body.title).toBe(bookData.title) // Verifica que el título coincida
-        expect(response.body.author).toBe(bookData.author) // Verifica que el autor coincida
+        expect(response.body.bookTitle).toBe(bookData.bookTitle) // Verifica que el título coincida
+        expect(response.body.authorName).toBe(bookData.authorName) // Verifica que el autor coincida
         expect(response.body.description).toBe(bookData.description) // Verifica que la descripción coincida
     })
 
     test('should delete a book', async () => {
         const book = await bookModel.create({
-            title: 'Test title',
-            author: 'Test Author',
+            bookTitle: 'Test title',
+            authorName: 'Test Author',
             description: 'This is a delete test',
         })
 

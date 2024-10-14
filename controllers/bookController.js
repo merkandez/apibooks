@@ -16,9 +16,9 @@ export const getAllBooks = async (req, res) => {
 // Controlador para crear un libro
 export const createBook = async (req, res) => {
     try {
-        const { title, author, description } = req.body
+        const { bookTitle, authorName, description } = req.body
 
-        const newBook = await bookModel.create({ title, author, description }) // Crea el libro en la base de datos
+        const newBook = await bookModel.create({ bookTitle, authorName, description }) // Crea el libro en la base de datos
 
         res.status(201).json(newBook) // Respuesta con el libro creado
     } catch (error) {

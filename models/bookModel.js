@@ -1,19 +1,29 @@
-import { DataTypes } from 'sequelize'
-import sequelize from '../database/connectionDb.js'
+import { DataTypes } from 'sequelize';
+import connection_db from '../database/connectionDb.js';
 
-const Book = sequelize.define('Book', {
-    title: {
-        type: DataTypes.STRING,
-        allowNull: false,
+const bookModel = connection_db.define(
+  'Book',
+  {
+    // Los atributos del modelo se definen aquí.
+    bookTitle: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    author: {
-        type: DataTypes.STRING,
-        allowNull: false,
+    authorName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      // permitirNull por defecto es verdadero.
     },
     description: {
-        type: DataTypes.TEXT,
-        allowNull: true,
+      type: DataTypes.STRING,
+      allowNull: false,
+      // permitirNull por defecto es verdadero.
     },
-})
+  },
+  {
+    TimeStamps: false, // Otras opciones de modelo irían aquí.
+  }
+);
 
-export default Book
+export default bookModel;
+// en script poner --silent o --verbose
