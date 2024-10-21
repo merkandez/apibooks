@@ -17,5 +17,11 @@ const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
         timestamps: false,
     },
 })
+try {
+    await sequelize.authenticate();
+    console.log('Conexión exitosa a la base de datos:', DB_NAME);
+} catch (error) {
+    console.error('Error al conectar con la base de datos:', error);
+}
 
 export default sequelize
